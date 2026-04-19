@@ -1,0 +1,84 @@
+# UTS Pengujian Perangkat Lunak dan Penjaminan Mutu
+
+## 1. Topik dan Requirement Unit
+
+### Topik:
+Validasi Data Pengguna (Email, Password, dan Nomor Telepon)
+
+### Tujuan:
+Unit ini dibuat untuk memvalidasi input data pengguna sebelum data disimpan atau diproses dalam sistem aplikasi.
+
+### Functional Requirement:
+
+#### A. Validasi Email
+1. Email tidak boleh kosong
+2. Email tidak boleh mengandung spasi
+3. Email harus memiliki simbol "@"
+4. Email harus memiliki domain (contoh: gmail.com)
+5. Format umum: nama@domain.com
+
+#### B. Validasi Password
+1. Password tidak boleh kosong
+2. Minimal 8 karakter
+3. Mengandung minimal 1 huruf besar
+4. Mengandung minimal 1 huruf kecil
+5. Mengandung minimal 1 angka
+6. Tidak boleh mengandung spasi
+
+#### C. Validasi Nomor Telepon
+1. Tidak boleh kosong
+2. Hanya boleh berisi angka
+3. Panjang 10–13 digit
+
+---
+
+## 2. Pengembangan Unit
+
+Unit dikembangkan dengan fitur:
+
+- Fungsi validate_email()
+- Fungsi validate_password()
+- Fungsi validate_phone()
+- Fungsi register_user() sebagai integrasi antar validasi
+
+Fitur keamanan:
+- Mencegah penggunaan password lemah
+- Mencegah kesalahan input format email
+- Menjaga integritas data nomor telepon
+
+Unit ini dapat digunakan dalam:
+- Aplikasi bisnis
+- Sistem registrasi
+- Aplikasi e-commerce
+- Sistem akademik
+- Sistem governance
+
+---
+
+## 3. Unit Testing
+
+Metode pengujian yang digunakan:
+
+### 1. Equivalence Partitioning
+Data dibagi menjadi:
+- Data valid
+- Data tidak valid
+
+Contoh:
+- Email valid: user@gmail.com
+- Email tidak valid: usergmail.com
+
+### 2. Boundary Value Analysis (BVA)
+Pengujian nilai batas:
+
+Password:
+- 7 karakter (invalid)
+- 8 karakter (valid)
+
+Nomor telepon:
+- 9 digit (invalid)
+- 10 digit (valid)
+- 13 digit (valid)
+- 14 digit (invalid)
+
+Testing dilakukan menggunakan automated unit testing dengan library unittest pada Python.
